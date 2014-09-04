@@ -8,7 +8,7 @@
 
   <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
 
-  <title>wshp.github.io</title>
+  <title>[翻译]Promises</title>
 </head>
 
 <body>
@@ -60,6 +60,40 @@
     }
         </code></pre>
 
+        <p class= "paragraph">
+            <ul>
+                <li>额外的回调函数混淆了我们真正的输入参数和输出值的判断。</li>
+                <li>它的执行不是依照控制流的原语。</li>
+                <li>它并不处理JSON.parse抛出的异常错误。</li>
+            </ul>
+        </p>
+
+        <p class= "paragraph">
+            我们需要处理JSON.parse抛出的异常错误，但是我们也需要注意不去处理回调函数抛出的错误。
+            就这样，我们的代码被错误处理搞得一团糟：
+        </p>
+    
+        <pre><code>
+    function readJSON(filename, callback){
+      fs.readFile(filename, 'utf8', function (err, res){
+        if (err) return callback(err);
+        try {
+          res = JSON.parse(res);
+        } catch (ex) {
+          return callback(ex);
+        }
+        callback(null, res);
+      });
+    }
+        </code></pre>
+    
+        <p class= "paragraph">
+            尽管已经有了这些乱七八糟的错误处理代码，我们依然无法避免因为额外的callback参数所造成的错误。Promises可以帮助你自然的处理错误，并且编写不再需要callback参数的清晰的代码。
+        </p>
+    
+        <p class= "paragraph">
+            [未完待续...]
+        </p>
     </section>
   </div>
 
