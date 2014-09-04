@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="description" content="wshp.github.io : wshp的个人博客">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+
+  <title>wshp.github.io</title>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div id="header_wrap" class="outer">
+    <header class="inner">
+      <a id="forkme_banner" href="https://github.com/wshp">View on GitHub</a>
+
+      <h1 id="project_title">wshp.github.io</h1>
+      <h2 id="project_tagline">wshp的个人博客</h2>
+
+    </header>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main_content_wrap" class="outer content">
+    <section id="main_content" class="inner">
+      <h3 class = 'title'>
+        Promises
+      </h3>
+        
+        <p>
+            <span>原网址：</span><a href="https://www.promisejs.org/">https://www.promisejs.org/</a>
+        </p>
+
+        <h4 class="small-title">动机</h2>
+
+        <p class= "paragraph">
+                参考下面的javascript异步函数，它读取一个文件并且按照JSON的规则进行解析。这个函数十分简单易懂，但是你并不愿意在大多数应用中使用它，因为它是阻塞执行的。这意味着，当从硬盘中读取文件的时候(通常是一个缓慢的操作)，无法执行其他的任务。
+        </p>
+
+        <pre><code>
+    function readJSONSync(filename) {
+      return JSON.parse(fs.readFileSync(filename, 'utf8'));
+    }
+        </code></pre>
+
+        <p class= "paragraph">
+            为了保证我们的应用的性能和响应性，我们需要使所有和IO相关的操作异步执行。实现这个的最简单方法是通过回调函数。但是，一个简单的回调函数实现可能是错误的：
+        </p>
+
+      <pre><code>
+    function readJSON(filename, callback){
+        fs.readFile(filename, 'utf8', function (err, res){
+            if (err) return callback(err);
+            callback(null, JSON.parse(res));
+        });
+    }
+        </code></pre>
+
+    </section>
+  </div>
+
+  <!-- FOOTER  -->
+  <div id="footer_wrap" class="outer">
+    <footer class="inner">
+      <p>
+        Published with
+        <a href="http://pages.github.com">GitHub Pages</a>
+      </p>
+    </footer>
+  </div>
+
+</body>
+</html>

@@ -4,6 +4,7 @@ by Jason Costello, @jsncostello
 *******************************************************************************/
 
 @import url(pygment_trac.css);
+@import url(final.css);
 
 /*******************************************************************************
 MeyerWeb Reset
@@ -421,3 +422,7 @@ Small Device Styles
   }
 
 }
+
+/*列表的样式*/
+.list span{ font-size: 20px;}
+.list li span{ margin-right: 20px; font-size: 16px;} 

@@ -1,0 +1,22 @@
+/*标题*/
+.content .title{
+	text-align: center;
+	font-size: 25px;
+}
+
+/*段落*/
+.content .paragraph{
+	
+}
+
+/*段落小标题*/
+.content .small-title{
+
+}
+
+/*代码*/
+.content pre code{
+	font-size: 1.2em;
+	font-family: 'Inconsolata' monospace;
+	-webkit-font-smoothing: antialiased;
+}
