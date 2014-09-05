@@ -1,7 +1,7 @@
 //首页的view
 define([ 'artTemplate', 'templates', 'data'], function ( artTemplate, templates, data ) {
 	
-	var el = document.querySelector('.list-canvas'),
+	var el = document.querySelector('.list-canvas') || document.body,
 		listTemplate = templates.list,
 		listData = data.list,
 		listrender = artTemplate.compile(listTemplate);

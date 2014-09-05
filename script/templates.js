@@ -34,8 +34,8 @@ define(function (argument) {
 		//列表段落
 		list : '<p class= "paragraph">\
 		           	<ul>\
-		                <%for( var i = 0, len = data.lenght; i < len; i++ ){%>\
-							<li>data[i]</li>\
+		                <%for( var i = 0, len = data.length; i < len; i++ ){%>\
+							<li><%= data[i]%></li>\
 		                <%}%>\
 		            </ul>\
 		        </p>',
@@ -44,7 +44,7 @@ define(function (argument) {
 		code : '<pre><code><%= data%></code></pre>',
 
 		//链接段落
-		link : '<p><span><%= data.info%></span><a href="<%= data.url%>"></a><%= data.url%></p>'
+		link : '<p><span><%= data.info%></span><a href="<%= data.url%>" target="_blank"><%= data.url%></a></p>'
 
 	};
 

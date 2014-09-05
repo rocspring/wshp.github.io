@@ -18,8 +18,8 @@
     <header class="inner">
       <a id="forkme_banner" href="https://github.com/wshp">View on GitHub</a>
 
-      <h1 id="project_title">wshp.github.io</h1>
-      <h2 id="project_tagline">wshp的个人博客</h2>
+      <h1 id="project_title">wshp的个人博客</h1>
+      <h2 id="project_tagline">记录中...</h2>
 
     </header>
   </div>
@@ -27,73 +27,9 @@
   <!-- MAIN CONTENT -->
   <div id="main_content_wrap" class="outer content">
     <section id="main_content" class="inner">
-      <h3 class = 'title'>
-        Promises
-      </h3>
-        
-        <p>
-            <span>原网址：</span><a href="https://www.promisejs.org/">https://www.promisejs.org/</a>
-        </p>
-
-        <h4 class="small-title">动机</h2>
-
-        <p class= "paragraph">
-                参考下面的javascript异步函数，它读取一个文件并且按照JSON的规则进行解析。这个函数十分简单易懂，但是你并不愿意在大多数应用中使用它，因为它是阻塞执行的。这意味着，当从硬盘中读取文件的时候(通常是一个缓慢的操作)，无法执行其他的任务。
-        </p>
-
-        <pre><code>
-    function readJSONSync(filename) {
-      return JSON.parse(fs.readFileSync(filename, 'utf8'));
-    }
-        </code></pre>
-
-        <p class= "paragraph">
-            为了保证我们的应用的性能和响应性，我们需要使所有和IO相关的操作异步执行。实现这个的最简单方法是通过回调函数。但是，一个简单的回调函数实现可能是错误的：
-        </p>
-
-      <pre><code>
-    function readJSON(filename, callback){
-        fs.readFile(filename, 'utf8', function (err, res){
-            if (err) return callback(err);
-            callback(null, JSON.parse(res));
-        });
-    }
-        </code></pre>
-
-        <p class= "paragraph">
-            <ul>
-                <li>额外的回调函数混淆了我们真正的输入参数和输出值的判断。</li>
-                <li>它的执行不是依照控制流的原语。</li>
-                <li>它并不处理JSON.parse抛出的异常错误。</li>
-            </ul>
-        </p>
-
-        <p class= "paragraph">
-            我们需要处理JSON.parse抛出的异常错误，但是我们也需要注意不去处理回调函数抛出的错误。
-            就这样，我们的代码被错误处理搞得一团糟：
-        </p>
     
-        <pre><code>
-    function readJSON(filename, callback){
-      fs.readFile(filename, 'utf8', function (err, res){
-        if (err) return callback(err);
-        try {
-          res = JSON.parse(res);
-        } catch (ex) {
-          return callback(ex);
-        }
-        callback(null, res);
-      });
-    }
-        </code></pre>
-    
-        <p class= "paragraph">
-            尽管已经有了这些乱七八糟的错误处理代码，我们依然无法避免因为额外的callback参数所造成的错误。Promises可以帮助你自然的处理错误，并且编写不再需要callback参数的清晰的代码。
-        </p>
-    
-        <p class= "paragraph">
-            [未完待续...]
-        </p>
+      <div class="content-canvas"></div>
+
     </section>
   </div>
 
@@ -111,7 +47,8 @@
 <script src="../script/require.js" data-main="../script/main"></script>
 <script>
   window.CONFIG = {
-    isContent : true
+    isContent : true,
+    date : '2014_9_4'
   };
 </script>
 </body>

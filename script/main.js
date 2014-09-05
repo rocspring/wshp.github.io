@@ -19,7 +19,7 @@ require(['artTemplate', 'templates', 'data', 'index', 'content'],function ( artT
 	if ( window.CONFIG.isIndex ) {
 		indexView.init();
 	}else if ( window.CONFIG.isContent ){
-		// contentView.init();
+		contentView.init();
 	}
 	
 });
