@@ -1,4 +1,4 @@
-define( [ 'artTemplate', 'templates', 'data'], function ( artTemplate, templates, data ) {
+define( [ 'artTemplate', 'templates', 'data', 'JQuery', 'snippet' ], function ( artTemplate, templates, data ) {
 	var content = {};
 
 	var el = document.querySelector('.content-canvas') || document.body,
@@ -22,6 +22,7 @@ define( [ 'artTemplate', 'templates', 'data'], function ( artTemplate, templates
 
 	function init () {
 		dataRendering ( );
+		codeLight();
 	}
 
 	//数据的渲染
@@ -61,6 +62,12 @@ define( [ 'artTemplate', 'templates', 'data'], function ( artTemplate, templates
 		}
 		
 		el.innerHTML = resultDom;
+	}
+
+	//代码的高亮
+	function codeLight () {
+		// SyntaxHighlighter.all();
+		$("pre.jsCode").snippet( "javascript", {style:"berries-dark",transparent:false,showNum:false} );
 	}
 
 	var Content = {

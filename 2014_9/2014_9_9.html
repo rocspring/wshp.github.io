@@ -95,12 +95,13 @@
        
       {
         type : 'code',
-        data : '    (function (wshp){\
-                        var name = "wshp";\
-                        wshp.get = function () {\
-                            return name;\
-                    };\
-                })(window.wshp = window.wshp || {});'
+        data : '\n\
+        (function (wshp){\n\
+            var name = "wshp";\n\
+            wshp.get = function () {\n\
+                return name;\n\
+            };\n\
+        })(window.wshp = window.wshp || {});'
       },
 
       {
@@ -130,14 +131,15 @@
 
       {
         type : 'code',
-        data : 'console.log("evaluating example.js");\
-                    var invisible = function () {\
-                      console.log("invisible");\
-                    }\
-                    exports.message = "hi";\
-                    exports.say = function () {\
-                      console.log(message);\
-                    }'
+        data : '\n\
+        console.log("evaluating example.js");\n\
+            var invisible = function () {\n\
+              console.log("invisible");\n\
+            }\n\
+            exports.message = "hi";\n\
+            exports.say = function () {\n\
+              console.log(message);\n\
+        }'
       },
 
       {
@@ -167,20 +169,22 @@
 
       {
         type : 'code',
-        data : "define('modelName', ['adder'], function(adder) {\
-                      function foo(){\
-                        lib.log('hello world!');\
-                    }\
-                    return {\
-                        foo: foo\
-                    };\
-                });"
+        data : "\n\
+        define('modelName', ['adder'], function(adder) {\n\
+              function foo(){\n\
+                lib.log('hello world!');\n\
+            }\n\
+            return {\n\
+                foo: foo\n\
+            };\n\
+        });"
      },
 
      {
         type : 'code',
-        data : "require( [ 'a', 'b', 'c'], function(){\
-                });"
+        data : "\n\
+        require( [ 'a', 'b', 'c'], function(){\n\
+        });"
      },
 
       

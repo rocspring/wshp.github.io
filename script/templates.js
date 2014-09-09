@@ -41,7 +41,7 @@ define(function (argument) {
 		        </p>',
 
 		//代码段落
-		code : '<pre><code><%= data%></code></pre>',
+		code : '<pre class="jsCode"><code><%= data%></code></pre>',
 
 		//链接段落
 		link : '<p><span><%= data.info%></span><a href="<%= data.url%>" target="_blank"><%= data.url%></a></p>'
