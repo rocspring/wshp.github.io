@@ -1,4 +1,4 @@
-define( [ 'artTemplate', 'templates', 'data', 'JQuery', 'snippet' ], function ( artTemplate, templates, data ) {
+define( [ 'artTemplate', 'templates', 'data', 'JQuery', 'snippet' ], function ( artTemplate, templates, data, $ ) {
 	var content = {};
 
 	var el = document.querySelector('.content-canvas') || document.body,
