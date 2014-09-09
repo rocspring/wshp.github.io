@@ -9,7 +9,8 @@
  * Date: Wed Jan 19, 2011
  */
 
-(function($) {
+define( ['JQuery'], function(jQuery) {
+	(function($) {
 	
 	//enables console.log() in all browsers for error messages
 	window.log=function(){log.history=log.history||[];log.history.push(arguments);if(this.console){console.log(Array.prototype.slice.call(arguments))}};		  
@@ -385,6 +386,8 @@
 	};
 
 })(jQuery);
+});
+
 
 
 // snippet new window popup function

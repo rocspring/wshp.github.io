@@ -2,7 +2,10 @@ require.config({
 
 	shim : {
 		JQuery : {
-			exports: '$'
+			exports : '$'
+		},
+		snippet : {
+			exports : '$$'
 		}
 	},
 
