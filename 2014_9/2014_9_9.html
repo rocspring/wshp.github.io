@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="description" content="wshp.github.io : wshp的个人博客">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="../style/stylesheet.css">
+
+  <title>[翻译]Promises</title>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div id="header_wrap" class="outer">
+    <header class="inner">
+      <a id="forkme_banner" href="https://github.com/wshp">View on GitHub</a>
+
+      <h1 id="project_title">wshp的个人博客</h1>
+      <h2 id="project_tagline">记录中...</h2>
+
+    </header>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main_content_wrap" class="outer content">
+    <section id="main_content" class="inner">
+    
+      <div class="content-canvas"></div>
+
+    </section>
+  </div>
+
+  <!-- FOOTER  -->
+  <div id="footer_wrap" class="outer">
+    <footer class="inner">
+      <p>
+        Published with
+        <a href="http://pages.github.com">GitHub Pages</a>
+      </p>
+    </footer>
+  </div>
+
+
+<script src="../script/require.js" data-main="../script/main"></script>
+<script>
+  window.CONFIG = {
+    isContent : true,
+    date : '2014_9_9'
+  };
+</script>
+<script>
+  window.CONFIG.pageData = [
+      {
+        type : 'title',
+        data : 'javascript的模块化'
+      },
+
+      {
+        type : 'date',
+        data : '[2014.9.9]'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'引言'
+      },
+
+      {
+        type : 'base',
+        data : ' 大家都知道javascript是Brendan Eich仅仅花了10天时间设计的一门语言，它最初的作用就是编写运行在网页上的脚本。因为最初并没有考虑到它用它来编写大规模的项目，这也就造成了js的先天不足。但是，随着ajax技术的发展，SPA的流行，使得js的项目规模越来越大，这就对js的模块化提出了需求。'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'模块化的需求'
+      },
+
+      {
+        type : 'base',
+        data : '当项目的规模越来越大的情况下，我们面临的第一个问题就是代码的组织。你很难想象上万行或十万行的代码写在一起的噩梦。ja不像java、C#等高级语言有using,import等来进行文件的引用，也没有命名空间等高等语法来进行组织和重用代码，并且避免代码的命名冲突。这就需要我们自己来解决这些问题。'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'立即执行的匿名函数'
+      },
+
+      {
+        type : 'base',
+        data : '大家都知道，js拥有函数作用域级别，在函数中的声明的一切，在外部都是无法直接获取的，通过js的这个特性，我们可以模拟命名空间，来避免命名冲突，使得可以多人合作开发项目。'
+      },
+       
+      {
+        type : 'code',
+        data : '    (function (wshp){\
+                        var name = "wshp";\
+                        wshp.get = function () {\
+                            return name;\
+                    };\
+                })(window.wshp = window.wshp || {});'
+      },
+
+      {
+        type : 'base',
+        data : ' 如实例的代码所示，wshp就是一个实际上的命名空间，通过这个立即执行的匿名函数，我们实现了模块化，这也是我们在开发中经常用到的方法。'
+      },
+
+       {
+        type : 'base',
+        data : '但是，这种方法有解决了全局变量和命名冲突的问题。但是对于另外一个大型项目所需要的解决的问题，则并没有解决，这就是代码依赖的问题。'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'CommonJS'
+      },
+
+      {
+        type : 'base',
+        data : 'ComminJS是一个社团，主要由服务器端js运行库的编写者组成，他们推广模块的公开和访问的标准化。'
+      },
+
+      {
+        type : 'base',
+        data : ' CommonJS的核心主要有两点：exports，每个模块有一个exports供外部调用，exports是一个js对象，上面挂有提供给外部的接口；require，有一个全局函数require，用来加载模块，require函数传入的参数是模块的标示符，返回模块提供的exports.'
+      },
+
+      {
+        type : 'code',
+        data : 'console.log("evaluating example.js");\
+                    var invisible = function () {\
+                      console.log("invisible");\
+                    }\
+                    exports.message = "hi";\
+                    exports.say = function () {\
+                      console.log(message);\
+                    }'
+      },
+
+      {
+        type : 'code',
+        data : 'var example = require("./example.js");'
+      },
+
+      {
+        type : 'base',
+        data : ' 如示例所示，就是最简单的CommonJS的规范的使用。'
+      },
+
+      {
+        type : 'smallTitle',
+        data : 'AMD( Asynchronous Module Definition )规范 和 requirejs'
+      },
+
+      {
+        type : 'base',
+        data : 'CommonJS解决了代码依赖的问题。但是，CommonJS是服务端的js规范，其中模块的加载是同步的。这种方式在服务端没有什么问题，因为所需要的资源是存储在物理硬盘中，加载的速度是非常快的。然而，在浏览器端，同步的加载方式就有很大的问题了，因为浏览器端的资源是通过http请求获取的，如果同步加载，则加载模块的时候，需要等待模块完全加载完成才能执行下一步操作，这样用户的体验会非常的差。因此，提出了AMD规范。'
+      },
+
+       {
+        type : 'base',
+        data : ' AMD的核心是define函数。'
+      },
+
+      {
+        type : 'code',
+        data : "define('modelName', ['adder'], function(adder) {\
+                      function foo(){\
+                        lib.log('hello world!');\
+                    }\
+                    return {\
+                        foo: foo\
+                    };\
+                });"
+     },
+
+     {
+        type : 'code',
+        data : "require( [ 'a', 'b', 'c'], function(){\
+                });"
+     },
+
+      
+      {
+        type : 'smallTitle',
+        data : 'CMD( Common Module Definition )规范 和 seajs'
+      },
+      
+    {
+        type : 'smallTitle',
+        data : '其他'
+      },
+
+    {
+        type : 'base',
+        data : '这篇文章是为了进行团队分享的总结的，参考了不少其他的资料，在此表示感谢！'
+    },
+
+      {
+        type : 'base',
+        data : '[未完待续...]'
+      }
+
+    ];
+</script>
+</body>
+</html>
