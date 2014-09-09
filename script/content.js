@@ -2,8 +2,11 @@ define( [ 'artTemplate', 'templates', 'data'], function ( artTemplate, templates
 	var content = {};
 
 	var el = document.querySelector('.content-canvas') || document.body,
-		nowDate = window.CONFIG.date,
-		nowData = data.content[nowDate],
+		nowDate = window.CONFIG.date;
+
+	data.addData( nowDate, window.CONFIG.pageData );
+
+	var	nowData = window.CONFIG.pageData || data.content[nowDate],
 		contentTemplate = templates.content,
 
 		titleRender = artTemplate.compile(contentTemplate.title),
