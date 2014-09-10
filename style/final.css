@@ -11,7 +11,11 @@
 
 /*段落小标题*/
 .content .small-title{
-
+	color: #fff;
+	background: #2B6695;
+	border-bottom: 1px solid #d3d3d3;
+	margin-top: 20px;
+	padding: 3px 0 0 10px;
 }
 
 /*代码*/
@@ -27,5 +31,6 @@
 	white-space: -o-pre-wrap;    /* Opera 7 */ 
 	word-wrap: break-word;       /* Internet Explorer 5.5+ */ 
 	margin-bottom: 10px;
-
+	width: 95%;
+	box-shadow: none !important;
 }
