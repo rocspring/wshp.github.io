@@ -3,9 +3,6 @@ require.config({
 	shim : {
 		JQuery : {
 			exports : '$'
-		},
-		snippet : {
-			exports : '$$'
 		}
 	},
 
@@ -16,9 +13,7 @@ require.config({
 		templates : 'templates',
 		data : 'data',
 		index : 'index',
-		content : 'content',
-		shCore : 'shCore',
-		shBrushJS : 'shBrushJScript'
+		content : 'content'
 	}
 });
 
