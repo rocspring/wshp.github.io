@@ -229,7 +229,197 @@
 
       {
         type : 'base',
-        data : '[未完待续...]'
+        data : '这段代码任然有一些需要改进的地方(在下一节，我们将看到如何改进它)，但是这种写法会减少出错的机会，并且，我们不需要在传入一个额外的参数。'
+      },
+
+      {
+        type : 'base',
+        data : '非标准'
+      },
+
+      {
+        type : 'base',
+        data : '首先说明，promise.done(在上面的例子中应用过)并不是标准的接口。但是，很多promise库都对它进行支持。它在作为一个学习目标和生产代码时都非常有用。我推荐通过下面的插件使用它。'
+      },
+
+      {
+        type : 'code',
+        data : '<script src="https://www.promisejs.org/polyfills/promise-done-5.0.0.min.js"><\/script>'
+      },
+
+     {
+        type : 'smallTitle',
+        data : '状态转换/链式操作'
+      },
+
+      {
+        type : 'base',
+        data : '观察我们的例子，我们的真实目的是让promise执行另外一个操作。在我们看来，第二个操作是同步执行的，但是它可以方便的变为一个异步操作。幸运的是，promises有一个方法(除了JQuery外，都支持)可以转换promises的状态并进行链式操作。'
+      },
+
+      {
+        type : 'base',
+        data : '简单来说，.then对.done就像.map对.forEach。换另外一种方法来说，.then适用于下一个操作需要上一个操作的结果(甚至仅仅需要上一下操作结束)，而.done适用于下一个操作不需要上一个操作的结果。'
+      },
+
+      {
+        type : 'base',
+        data : '现在，我们可以简单的重写我们最开始的那个例子：'
+      },
+
+      {
+        type : 'code',
+        data : "\n\
+        function readJSON(filename){\n\
+          return readFile(filename, 'utf8').then(function (res){\n\
+            return JSON.parse(res)\n\
+          })\n\
+        }"
+      },
+
+
+      {
+        type : 'base',
+        data : '因为JSON.parse仅仅是一个函数，所有可以继续重写：'
+      },
+
+      {
+        type : 'code',
+        data : "\n\
+        function readJSON(filename){\n\
+          return readFile(filename, 'utf8').then(JSON.parse);\n\
+        }"
+      },
+
+      {
+        type : 'base',
+        data : '这种写法和开始时的同步的例子的写法非常相似。'
+      },
+
+      {
+        type : 'smallTitle',
+        data : '实现/Polyfills'
+      },
+
+      {
+        type : 'base',
+        data : 'promises在浏览器和nodejs中都十分有用。'
+      },
+
+      {
+        type : 'base',
+        data : 'jquery'
+      },
+
+      {
+        type : 'base',
+        data : '这是一个好的时机告诉你，jquery调用promise和其他类库调用promise是十分不同的。Jquery的promises提供很少的API以至于好像拒绝你使用它。幸运的是，你不需要使用JQuery怪异的promise实现，可以通过转换把它变为一个标准的promise：'
+      },
+
+      {
+        type : 'code',
+        data : "\n\
+        var jQueryPromise = $.ajax('/data.json');\n\
+        var realPromise = Promise.resolve(jQueryPromise);\n\
+        \/\/now just use `realPromise` however you like."
+      },
+
+      {
+        type : 'base',
+        data : '浏览器'
+      },
+
+      {
+        type : 'base',
+        data : 'promises仅仅只有很少一部分浏览器真正支持(查看支持的列表)。但是，好消息是它们很容易polyfill 。'
+      },
+
+      {
+        type : 'code',
+        data : '<script src="https://www.promisejs.org/polyfills/promise-5.0.0.min.js"><\/script>'
+      },
+
+      {
+        type : 'base',
+        data : '没有一个浏览器真正支持Promise.prototype.done。因此，如果你希望使用这个借口，同时你不希望使用上面的polyfill，则你至少需要加上下面的polyfill：'
+      },
+
+      {
+        type : 'code',
+        data : '<script src="https://www.promisejs.org/polyfills/promise-done-5.0.0.min.js"><\/script>'
+      },
+
+      {
+        type : 'base',
+        data : 'Node.js'
+      },
+
+      {
+        type : 'base',
+        data : '在node.js环境中，polyfill promises 并不是一个好的方法。相反，如果你需要promises，最后加载promises库'
+      },
+
+      {
+        type : 'base',
+        data : '安装promise：'
+      },
+
+      {
+        type : 'code',
+        data : 'npm install promise --save'
+      },
+
+      {
+        type : 'base',
+        data : '接下来，你可以通过require方法把它加载到本地：'
+      },
+
+      {
+        type : 'code',
+        data : "var Promise = require('promise');"
+      },
+
+      {
+        type : 'base',
+        data : 'promise库提供了一些十分有用的扩展通过node.js'
+      },
+
+      {
+        type : 'code',
+        data : "\n\
+        var readFile = Promise.denodeify(require('fs').readFile);\n\
+        \/\/ now `readFile` will return a promise rather than expecting a callback\n\
+        \n\
+        function readJSON(filename, callback){\n\
+          \/\/ If a callback is provided, call it with error as the first argument\n\
+          \/\/ and result as the second argument, then return `undefined`.\n\
+          \/\/ If no callback is provided, just return the promise.\n\
+          return readFile(filename, 'utf8').then(JSON.parse).nodeify(callback);\n\
+        }"
+      },
+
+      {
+        type : 'smallTitle',
+        data : '扩展阅读'
+      },
+
+      {
+        type : 'list',
+        data : [
+          'Patterns - promise应用的模式，介绍了很多实用的方法可以节省你的时间。',
+          'MDN - mozilla网络开发者，有关于promises的详细文档。',
+          'YouTube - JSConf.e的一个视频，讨论了很多和本文提出的相似问题。'
+        ]
+      },
+
+      {
+        type : 'smallTitle',
+        data : '其他'
+      },
+
+      {
+        type : 'data',
+        data : '第一次翻译，问题很多，需要继续的改进，谢谢！'
       }
 
     ];
