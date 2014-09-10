@@ -67,7 +67,12 @@ define( [ 'artTemplate', 'templates', 'data', 'JQuery', 'snippet' ], function ( 
 	//代码的高亮
 	function codeLight () {
 		// SyntaxHighlighter.all();
-		$("pre.jsCode").snippet( "javascript", {style:"berries-dark",transparent:false,showNum:false} );
+		$("pre.jsCode").snippet( "javascript", {
+												style : "berries-dark",
+												transparent : false,
+												showNum : false,
+												menu : false
+											} );
 	}
 
 	var Content = {
