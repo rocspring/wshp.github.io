@@ -159,7 +159,7 @@
 
       {
         type : 'base',
-        data : 'CommonJS解决了代码依赖的问题。但是，CommonJS是服务端的javascript规范，其中模块的加载是同步的。这种方式在服务端没有什么问题，因为所需要的资源是存储在物理硬盘中，加载的速度是非常快的。然而，在浏览器端，同步的加载方式就有很大的问题了，因为浏览器端的资源是通过http请求获取的，如果同步加载，则加载模块的时候，需要等待模块完全加载完成才能执行下一步操作，这样用户的体验会非常的差。因此，提出了AMD规范。'
+        data : 'AMD是Asynchronous Module Definition。CommonJS解决了代码依赖的问题。但是，CommonJS是服务端的javascript规范，其中模块的加载是同步的。这种方式在服务端没有什么问题，因为所需要的资源是存储在物理硬盘中，加载的速度是非常快的。然而，在浏览器端，同步的加载方式就有很大的问题了，因为浏览器端的资源是通过http请求获取的，如果同步加载，则加载模块的时候，需要等待模块完全加载完成才能执行下一步操作，这样用户的体验会非常的差。因此，提出了AMD规范。'
       },
 
        {
@@ -189,26 +189,61 @@
      },
 
       
-      {
+    {
         type : 'smallTitle',
         data : 'CMD和seajs'
-      },
+    },
       
+    {
+        type : 'base',
+        data : 'CMD是Common Module Definition，也支持浏览器端的模块异步加载。CMD和AMD的区别主要是一个是预先加载，一个是就近加载所依赖的模块。seajs是CMD的具体实现，由玉伯开发。'
+    },
+
+    {
+        type : 'base',
+        data : '如果希望详细的了解两种规范的不同，可以研究两者的源码，参考资料有两者的github链接。'
+    },
+
     {
         type : 'smallTitle',
         data : '其他'
-      },
+    },
 
     {
         type : 'base',
         data : '这篇文章是为了进行团队分享的总结的，参考了不少其他的资料，在此表示感谢！'
     },
 
-      {
-        type : 'base',
-        data : '[未完待续...]'
-      }
+    {
+        type : 'smallTitle',
+        data : '参考资料'
+    },
 
+    {
+        type : 'links',
+        data :[
+            {
+              info : '[1]',
+              url : 'http://www.ituring.com.cn/article/1091'
+            },
+            {
+              info : '[2]',
+              url : 'http://wiki.commonjs.org/wiki/Modules/1.1.1'
+            },
+            {
+              info : '[3]',
+              url : 'https://github.com/jrburke/requirejs'
+            },
+            {
+              info : '[4]',
+              url : 'https://github.com/seajs/seajs'
+            },
+            {
+              info : '[5]',
+              url : 'http://www.ruanyifeng.com/blog/2012/10/asynchronous_module_definition.html'
+            }
+        ] 
+    }
     ];
 </script>
 </body>

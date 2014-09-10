@@ -1,12 +1,8 @@
 define( [ 'artTemplate', 'templates', 'data', 'JQuery', 'snippet' ], function ( artTemplate, templates, data, $ ) {
-	var content = {};
 
 	var el = document.querySelector('.content-canvas') || document.body,
-		nowDate = window.CONFIG.date;
-
-	data.addData( nowDate, window.CONFIG.pageData );
-
-	var	nowData = window.CONFIG.pageData || data.content[nowDate],
+		nowDate = window.CONFIG.date,
+		nowData = window.CONFIG.pageData || [],
 		contentTemplate = templates.content,
 
 		titleRender = artTemplate.compile(contentTemplate.title),
@@ -15,7 +11,8 @@ define( [ 'artTemplate', 'templates', 'data', 'JQuery', 'snippet' ], function ( 
 		baseRender = artTemplate.compile(contentTemplate.base),
 		listRender = artTemplate.compile(contentTemplate.list),
 		codeRender = artTemplate.compile(contentTemplate.code),
-		linkRender = artTemplate.compile(contentTemplate.link);
+		linkRender = artTemplate.compile(contentTemplate.link),
+		linksRender = artTemplate.compile(contentTemplate.links);
 
 
 
@@ -43,6 +40,9 @@ define( [ 'artTemplate', 'templates', 'data', 'JQuery', 'snippet' ], function ( 
 					break;
 				case 'link':
 					tempDom = linkRender(nowData[i]);
+					break;
+				case 'links':
+					tempDom = linksRender(nowData[i]);
 					break;
 				case 'smallTitle':
 					tempDom = smallTitleRender(nowData[i]);

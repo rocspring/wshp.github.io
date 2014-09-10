@@ -43,8 +43,17 @@ define(function (argument) {
 		//代码段落
 		code : '<pre class="jsCode"><code><%= data%></code></pre>',
 
-		//链接段落
-		link : '<p><span><%= data.info%></span><a href="<%= data.url%>" target="_blank"><%= data.url%></a></p>'
+		//链接段落(以后不再使用)
+		link : '<p><span><%= data.info%></span><a href="<%= data.url%>" target="_blank"><%= data.url%></a></p>',
+
+		//多个链接地址
+		links : '<p class= "links">\
+		           	<ul>\
+		                <%for( var i = 0, len = data.length; i < len; i++ ){%>\
+							<li><span><%= data[i].info%>&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="<%= data[i].url%>" target="_blank"><%= data[i].url%></a></li>\
+		                <%}%>\
+		            </ul>\
+		        </p>'
 
 	};
 
