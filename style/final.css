@@ -37,3 +37,14 @@
 	padding: 0.3em !important;
 	background-color: #9f9f9d !important;
 }
+
+/*图片*/
+.image img{
+	display: block;
+	max-width: 900px;
+	margin: 10px auto;
+}
+.image p{
+	text-align: center;
+	color:#999;
+}

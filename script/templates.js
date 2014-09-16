@@ -53,7 +53,11 @@ define(function (argument) {
 							<li><span><%= data[i].info%>&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="<%= data[i].url%>" target="_blank"><%= data[i].url%></a></li>\
 		                <%}%>\
 		            </ul>\
-		        </p>'
+		        </p>',
+      	image : '<div class="image">\
+		      		<img src = "<%=data.url%>" alt="<%=data.info%>"></img>\
+		      		<p><%=data.info%></p>\
+		      	</div>'
 
 	};
 

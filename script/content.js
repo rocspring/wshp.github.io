@@ -12,7 +12,8 @@ define( [ 'artTemplate', 'templates', 'data', 'JQuery', 'snippet' ], function ( 
 		listRender = artTemplate.compile(contentTemplate.list),
 		codeRender = artTemplate.compile(contentTemplate.code),
 		linkRender = artTemplate.compile(contentTemplate.link),
-		linksRender = artTemplate.compile(contentTemplate.links);
+		linksRender = artTemplate.compile(contentTemplate.links),
+		imageRender = artTemplate.compile(contentTemplate.image);
 
 
 
@@ -55,6 +56,9 @@ define( [ 'artTemplate', 'templates', 'data', 'JQuery', 'snippet' ], function ( 
 					break;
 				case 'list':
 					tempDom = listRender(nowData[i]);
+					break;
+				case 'image':
+					tempDom = imageRender(nowData[i]);
 					break;
 			}
 

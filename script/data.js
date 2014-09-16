@@ -19,6 +19,12 @@ define(function () {
 								day : '2014.9.9',
 								title : 'javascript的模块化',
 								url : '2014_9/2014_9_9.html'
+							},
+
+							{
+								day : '2014.9.15',
+								title : 'Backbone分析(1)：基本结构',
+								url : '2014_9/2014_9_15.html'
 							}
 							
 						]
