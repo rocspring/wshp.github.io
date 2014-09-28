@@ -25,6 +25,12 @@ define(function () {
 								day : '2014.9.15',
 								title : 'Backbone分析(1)：基本结构',
 								url : '2014_9/2014_9_15.html'
+							},
+
+							{
+								day : '2014.9.28',
+								title : 'javascript中正则表达式的常用方法',
+								url : '2014_9/2014_9_28.html'
 							}
 							
 						]

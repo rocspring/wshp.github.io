@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="description" content="wshp.github.io : wshp的个人博客">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="../style/stylesheet.css">
+
+  <title>javascript中正则表达式的常用方法</title>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div id="header_wrap" class="outer">
+    <header class="inner">
+      <a id="forkme_banner" href="https://github.com/wshp">View on GitHub</a>
+
+      <h1 id="project_title">wshp的个人博客</h1>
+      <h2 id="project_tagline">记录中...</h2>
+
+    </header>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main_content_wrap" class="outer content">
+    <section id="main_content" class="inner">
+    
+      <div class="content-canvas"></div>
+
+    </section>
+  </div>
+
+  <!-- FOOTER  -->
+  <div id="footer_wrap" class="outer">
+    <footer class="inner">
+      <p>
+        Published with
+        <a href="http://pages.github.com">GitHub Pages</a>
+      </p>
+    </footer>
+  </div>
+
+
+<script src="../script/require.js" data-main="../script/main"></script>
+<script>
+  window.CONFIG = {
+    isContent : true,
+    date : '2014_9_28'
+  };
+</script>
+<script>
+    window.CONFIG.baseUrl = '../images/2014_9/2014_9_28/';
+    window.CONFIG.pageData = [
+      {
+        type : 'title',
+        data : 'javascript中正则表达式的常用方法'
+      },
+
+      {
+        type : 'date',
+        data : '[2014.9.28]'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'引言'
+      },
+
+      {
+        type : 'base',
+        data : '最近工作中对正则表达式的使用的比较多，但是对它的一些常用方法并不是特别的清晰，因此在这总结一下。'
+      },
+
+      {
+        type : 'base',
+        data : ' javascript中，支持正则表达式的常用方法有七种，分别是test(),exec(),compile(),match(),replace()、split()、search()。其中，test(),exec()和compile()是RegExp调用的方法，后四种是String调用的方法。下面对这七种方法进行具体的分析。'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'test()'
+      },
+
+      {
+        type : 'base',
+        data : ' test方法的参数是一个字符串，返回值是布尔值。常用的方式是：'
+      },
+
+      {
+        type : 'code',
+        data : '\n\
+        var temp = /abc/.test(\'mabc\');'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'test.png',
+            info : 'test方法的执行结果'
+        }
+      },
+
+      {
+        type : 'base',
+        data : ' test方法其实是exec方法的一个简单的使用，目的是判断字符串是否匹配正则表达式，然后返回一个布尔值，方便使用。/abc/.test(\'mabc\')等价于(/abc/.extc(\'mabc\') != null )。'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'exec()'
+      },
+
+      {
+        type : 'base',
+        data : '[未完待续...]'
+      }
+
+    ];
+</script>
+</body>
+</html>
