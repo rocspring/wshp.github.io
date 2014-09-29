@@ -81,7 +81,7 @@
 
       {
         type : 'smallTitle',
-        data :'test()'
+        data :'test ( )'
       },
 
       {
@@ -110,12 +110,31 @@
 
       {
         type : 'smallTitle',
-        data :'exec()'
+        data :'exec ( )'
       },
 
       {
         type : 'base',
-        data : ' exec是一个通用的方法，功能十分强大。'
+        data : ' exec是一个通用的方法，功能十分强大。它对字符串进行匹配，如果有匹配的内容，返回一个匹配结果的数组，否则返回null。'
+      },
+
+      {
+        type : 'base',
+        data : '  返回的数组中的第0个元素是匹配正则表达式的文本，数组的第二个元素是匹配第一个子正则表达式的文本，数组的第三个元素是匹配第二个子正则表达式的文本，余下的以此类推。'
+      },
+
+      {
+        type : 'code',
+        data : '\n\
+         var test = /(ab(c))/.exec(\'abcdefghi\');'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'exec.jpg',
+            info : 'exec方法的执行结果'
+        }
       },
 
       {
