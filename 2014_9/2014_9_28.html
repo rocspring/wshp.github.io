@@ -133,8 +133,123 @@
         type : 'image',
         data : {
             url : window.CONFIG.baseUrl + 'exec.jpg',
-            info : 'exec方法的执行结果'
+            info : 'exec方法的执行结果(1)'
         }
+      },
+
+      {
+        type : 'base',
+        data : ' 可以看到返回的结果是一个数组。数组的第一个值是匹配正则表达式的字符串，而第二个值是匹配字正则表达式 的字符串，第三个值是匹配第二个子正则表达式的字符串。同时，注意，返回的数组除了有length的属性外，还有input属性和index属性。input属性是输入的字符串，index属性是匹配的字符串第一个字符的位置。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'exec2.jpg',
+            info : 'exec方法的执行结果(2)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : '  由图可以看到，exec的子正则表达式，并不分层级。第二个子正则表达式是(c)，第三个子正则表达式是(ef)。'
+      },
+
+      {
+        type : 'base',
+        data : '当exec的正则表达式是全局变量时，需要注意一个属性lastIndex。lastIndex指定了正则表达式检测的字符串的起始位置。当匹配结束时，正则表达式的lastIndex会被自动设置为匹配字符串的最后一个字符的下一个位置。因此，可以反复的调用exec()方法来遍历字符串中的所有匹配项。但是，如果需要检测一个新的字符串，必须手动的把lastIndex属性设置为0，否则，会从lastIndex指定的位置开始匹配。'
+      },
+
+       {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'exec3.jpg',
+            info : 'exec方法的执行结果(3)'
+        }
+      },
+
+      {
+        type : 'smallTitle',
+        data :'compile ( )'
+      },
+
+      {
+        type : 'base',
+        data : 'compile方法并不常用，它是用来改变和重新编译正则表达式的。具体的使用如图所示：'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'compile.jpg',
+            info : 'compile方法的执行结果'
+        }
+      },
+
+      {
+        type : 'base',
+        data : '可以看到，正则表达式patt被改变了。'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'match ( )'
+      },
+
+      {
+        type : 'base',
+        data : ' match是字符串的一个重要的方法。它通过检索输入的字符串，查找和正则表达式相匹配的字符串。根据正则表达式是否有标志g，查找一个或者多个匹配的字符串。'
+      },
+
+      {
+        type : 'base',
+        data : ' 如果正则表达式没有标志g时，match方法只执行一次。返回的结果和exec方法返回的结果相似，是一个数组，有input和index属性。例子如下图所示：'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'match1.jpg',
+            info : 'match方法的执行结果(1)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : ' 方法返回的结果和exec方法是一样的。'
+      },
+
+      {
+        type : 'base',
+        data : ' 但是，如果正则表达式有标志g时，match方法返回的结果有比较大的区别。如果没有匹配的子串，返回null。如果有匹配的内容，返回一个数组，数组中个元素时所有匹配的子串，同时返回的数组也没有index和input属性，如图所示。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'match2.jpg',
+            info : 'match方法的执行结果(2)'
+        }
+      },
+
+       {
+        type : 'base',
+        data : ' 可以看到，返回的结果是正则表达式匹配的所有字符串，同时结果没有index和input属性。'
+      },
+
+       {
+        type : 'base',
+        data : ' 因此，如果希望获取每个匹配子串的详细信息，需要循环使用exec方法。'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'replace ( )'
+      },
+
+      {
+        type : 'base',
+        data : ' replace方法是一个非常重要的方法。它有多种用法，下面一一讲来。'
       },
 
       {
