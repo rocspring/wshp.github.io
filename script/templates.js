@@ -43,7 +43,7 @@ define(function (argument) {
 		//代码段落
 		code : '<pre class="jsCode"><code><%= data%></code></pre>',
 
-		//链接段落(以后不再使用)
+		//链接段落(以后不再使用,使用links)
 		link : '<p><span><%= data.info%></span><a href="<%= data.url%>" target="_blank"><%= data.url%></a></p>',
 
 		//多个链接地址
@@ -54,10 +54,26 @@ define(function (argument) {
 		                <%}%>\
 		            </ul>\
 		        </p>',
+
       	image : '<div class="image">\
 		      		<img src = "<%=data.url%>" alt="<%=data.info%>"></img>\
 		      		<p><%=data.info%></p>\
-		      	</div>'
+		      	</div>',
+
+		table : '<table class = "table">\
+					<tr>\
+						<%for ( var i = 0, len1 = data[0].length; i < len1; i++ ){%>\
+							<th><%=data[0][i]%></th>\
+						<%}%>\
+					</tr>\
+					<%for ( var j = 1, len2 = data.length; j < len2; j++ ){%>\
+						<tr>\
+						<%for ( var k = 0, len3 = data[j].length; k < len3; k++ ){%>\
+							<th><%=data[j][k]%></th>\
+						<%}%>\
+						<tr/>\
+					<%}%>\
+				</table>'
 
 	};
 
