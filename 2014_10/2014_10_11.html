@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="description" content="wshp.github.io : wshp的个人博客">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="../style/stylesheet.css">
+
+  <title>javascript中正则表达式的常用方法</title>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div id="header_wrap" class="outer">
+    <header class="inner">
+      <a id="forkme_banner" href="https://github.com/wshp">View on GitHub</a>
+
+      <h1 id="project_title">wshp的个人博客</h1>
+      <h2 id="project_tagline">记录中...</h2>
+
+    </header>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main_content_wrap" class="outer content">
+    <section id="main_content" class="inner">
+    
+      <div class="content-canvas"></div>
+
+    </section>
+  </div>
+
+  <!-- FOOTER  -->
+  <div id="footer_wrap" class="outer">
+    <footer class="inner">
+      <p>
+        Published with
+        <a href="http://pages.github.com">GitHub Pages</a>
+      </p>
+    </footer>
+  </div>
+
+
+<script src="../script/require.js" data-main="../script/main"></script>
+<script>
+  window.CONFIG = {
+    isContent : true,
+    date : '2014_9_28'
+  };
+</script>
+<script>
+    window.CONFIG.baseUrl = '../images/2014_9/2014_9_28/';
+    window.CONFIG.pageData = [
+      {
+        type : 'title',
+        data : 'javascript中正则表达式的常用方法'
+      },
+
+      {
+        type : 'date',
+        data : '[2014.9.28]'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'引言'
+      },
+
+      {
+        type : 'base',
+        data : '最近工作中对正则表达式的使用的比较多，但是对它的一些常用方法并不是特别的清晰，因此在这总结一下。'
+      },
+
+      {
+        type : 'base',
+        data : ' javascript中，支持正则表达式的常用方法有七种，分别是test(),exec(),compile(),match(),replace()、split()、search()。其中，test(),exec()和compile()是RegExp调用的方法，后四种是String调用的方法。下面对这七种方法进行具体的分析。'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'test ( )'
+      },
+
+      {
+        type : 'base',
+        data : ' test方法的参数是一个字符串，返回值是布尔值。常用的方式是：'
+      },
+
+      {
+        type : 'code',
+        data : '\n\
+        var temp = /abc/.test(\'mabc\');'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'test.png',
+            info : 'test方法的执行结果'
+        }
+      },
+
+      {
+        type : 'base',
+        data : ' test方法其实是exec方法的一个简单的使用，目的是判断字符串是否匹配正则表达式，然后返回一个布尔值，方便使用。/abc/.test(\'mabc\')等价于(/abc/.extc(\'mabc\') != null )。'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'exec ( )'
+      },
+
+      {
+        type : 'base',
+        data : ' exec是一个通用的方法，功能十分强大。它对字符串进行匹配，如果有匹配的内容，返回一个匹配结果的数组，否则返回null。'
+      },
+
+      {
+        type : 'base',
+        data : '  返回的数组中的第0个元素是匹配正则表达式的文本，数组的第二个元素是匹配第一个子正则表达式的文本，数组的第三个元素是匹配第二个子正则表达式的文本，余下的以此类推。'
+      },
+
+      {
+        type : 'code',
+        data : '\n\
+         var test = /(ab(c))/.exec(\'abcdefghi\');'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'exec.jpg',
+            info : 'exec方法的执行结果(1)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : ' 可以看到返回的结果是一个数组。数组的第一个值是匹配正则表达式的字符串，而第二个值是匹配字正则表达式 的字符串，第三个值是匹配第二个子正则表达式的字符串。同时，注意，返回的数组除了有length的属性外，还有input属性和index属性。input属性是输入的字符串，index属性是匹配的字符串第一个字符的位置。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'exec2.jpg',
+            info : 'exec方法的执行结果(2)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : '  由图可以看到，exec的子正则表达式，并不分层级。第二个子正则表达式是(c)，第三个子正则表达式是(ef)。'
+      },
+
+      {
+        type : 'base',
+        data : '当exec的正则表达式是全局变量时，需要注意一个属性lastIndex。lastIndex指定了正则表达式检测的字符串的起始位置。当匹配结束时，正则表达式的lastIndex会被自动设置为匹配字符串的最后一个字符的下一个位置。因此，可以反复的调用exec()方法来遍历字符串中的所有匹配项。但是，如果需要检测一个新的字符串，必须手动的把lastIndex属性设置为0，否则，会从lastIndex指定的位置开始匹配。'
+      },
+
+       {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'exec3.jpg',
+            info : 'exec方法的执行结果(3)'
+        }
+      },
+
+      {
+        type : 'smallTitle',
+        data :'compile ( )'
+      },
+
+      {
+        type : 'base',
+        data : 'compile方法并不常用，它是用来改变和重新编译正则表达式的。具体的使用如图所示：'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'compile.jpg',
+            info : 'compile方法的执行结果'
+        }
+      },
+
+      {
+        type : 'base',
+        data : '可以看到，正则表达式patt被改变了。'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'match ( )'
+      },
+
+      {
+        type : 'base',
+        data : ' match是字符串的一个重要的方法。它通过检索输入的字符串，查找和正则表达式相匹配的字符串。根据正则表达式是否有标志g，查找一个或者多个匹配的字符串。'
+      },
+
+      {
+        type : 'base',
+        data : ' 如果正则表达式没有标志g时，match方法只执行一次。返回的结果和exec方法返回的结果相似，是一个数组，有input和index属性。例子如下图所示：'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'match1.jpg',
+            info : 'match方法的执行结果(1)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : ' 方法返回的结果和exec方法是一样的。'
+      },
+
+      {
+        type : 'base',
+        data : ' 但是，如果正则表达式有标志g时，match方法返回的结果有比较大的区别。如果没有匹配的子串，返回null。如果有匹配的内容，返回一个数组，数组中个元素时所有匹配的子串，同时返回的数组也没有index和input属性，如图所示。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'match2.jpg',
+            info : 'match方法的执行结果(2)'
+        }
+      },
+
+       {
+        type : 'base',
+        data : ' 可以看到，返回的结果是正则表达式匹配的所有字符串，同时结果没有index和input属性。'
+      },
+
+       {
+        type : 'base',
+        data : ' 因此，如果希望获取每个匹配子串的详细信息，需要循环使用exec方法。'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'replace ( )'
+      },
+
+      {
+        type : 'base',
+        data : ' replace方法是一个非常重要的方法。它有多种用法，下面一一讲来。'
+      },
+
+      {
+        type : 'base',
+        data : ' replace( str/regexp, replacement )有两个参数，都是必需的。第一个参数需要替换的内容，第二个参数是用来替换的内容。'
+      },
+
+      {
+        type : 'base',
+        data : ' 第一个参数可以为字符串，但是仅仅能替换元素第一个匹配的内容。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'replace1.jpg',
+            info : 'replace方法的执行结果(1)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : ' 因此，如果希望替换字符串中的所有匹配的元素，需要使用正则表达式。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'replace2.jpg',
+            info : 'replace方法的执行结果(2)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : ' 第二个参数用来替换的内容可以使字符串或者函数。当是字符串的时候，有一些包含$的字符串有特殊的含义。'
+      },
+
+      {
+        type : 'table',
+        data : [
+            ['字符', '替换文本'],
+            ['$1、$2、...、$99', '与 regexp 中的第 1 到第 99 个子表达式相匹配的文本。'],
+            ['$&', '与 regexp 相匹配的子串。'],
+            ['$`', '位于匹配子串左侧的文本。'],
+            ['$\'', '位于匹配子串右侧的文本。'],
+            ['$$', '直接量符号。']
+        ]
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'replace3.jpg',
+            info : 'replace方法的执行结果(3)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : ' 注意，$1、...、$99不能作为字符串,用引号包含。'
+      },
+
+      {
+        type : 'base',
+        data : ' 第二个参数还可以是一个函数，这是一个比较重要的方法。函数有多个参数，第一个参数是匹配正则表达式的字符串，后面的参数是匹配子正则表达式的字符串，可以有0个或者多个。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'replace4.jpg',
+            info : 'replace方法的执行结果(4)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : ' 这个方法可以应用于js模板引擎的实现。'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'split ( )'
+      },
+
+      {
+        type : 'base',
+        data : ' split()也是比较常用的方法，它有两个参数：第一个参数是必需的，是一个字符串或者正则表达式；第二个参数是可选的，是确定返回的结果数组的最大长度，这个参数不太常用。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'split1.jpg',
+            info : 'split方法的执行结果(1)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : 'split也可以通过正则表达式来进行分割，但是如果正则表达式包含子正则表达式，则返回的数组中包含与子正则表达式相匹配的的字符串(并不包括与整个正则表达式相匹配的的字符串)。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'split2.jpg',
+            info : 'split方法的执行结果(2)'
+        }
+      },
+
+      {
+        type : 'smallTitle',
+        data :'search ( )'
+      },
+
+      {
+        type : 'base',
+        data : ' seaech方法是用来检索字符串中第一个匹配字符串的起始位置，如果未找到匹配的字符串，则返回-1。'
+      },
+
+      {
+        type : 'base',
+        data : ' seaech方法不执行全局匹配，它会忽略标志g，同时忽略 regexp 的 lastIndex 属性，总是从字符串的开始进行检索。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'search.jpg',
+            info : 'seaech方法的执行结果'
+        }
+      },
+
+      {
+        type : 'base',
+        data : '谢谢！'
+      }
+
+    ];
+</script>
+</body>
+</html>
