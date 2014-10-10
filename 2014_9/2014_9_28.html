@@ -254,7 +254,140 @@
 
       {
         type : 'base',
-        data : '[未完待续...]'
+        data : ' replace( str/regexp, replacement )有两个参数，都是必需的。第一个参数需要替换的内容，第二个参数是用来替换的内容。'
+      },
+
+      {
+        type : 'base',
+        data : ' 第一个参数可以为字符串，但是仅仅能替换元素第一个匹配的内容。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'replace1.jpg',
+            info : 'replace方法的执行结果(1)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : ' 因此，如果希望替换字符串中的所有匹配的元素，需要使用正则表达式。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'replace2.jpg',
+            info : 'replace方法的执行结果(2)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : ' 第二个参数用来替换的内容可以使字符串或者函数。当是字符串的时候，有一些包含$的字符串有特殊的含义。'
+      },
+
+      {
+        type : 'table',
+        data : [
+            ['字符', '替换文本'],
+            ['$1、$2、...、$99', '与 regexp 中的第 1 到第 99 个子表达式相匹配的文本。'],
+            ['$&', '与 regexp 相匹配的子串。'],
+            ['$`', '位于匹配子串左侧的文本。'],
+            ['$\'', '位于匹配子串右侧的文本。'],
+            ['$$', '直接量符号。']
+        ]
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'replace3.jpg',
+            info : 'replace方法的执行结果(3)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : ' 注意，$1、...、$99不能作为字符串,用引号包含。'
+      },
+
+      {
+        type : 'base',
+        data : ' 第二个参数还可以是一个函数，这是一个比较重要的方法。函数有多个参数，第一个参数是匹配正则表达式的字符串，后面的参数是匹配子正则表达式的字符串，可以有0个或者多个。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'replace4.jpg',
+            info : 'replace方法的执行结果(4)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : ' 这个方法可以应用于js模板引擎的实现。'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'split ( )'
+      },
+
+      {
+        type : 'base',
+        data : ' split()也是比较常用的方法，它有两个参数：第一个参数是必需的，是一个字符串或者正则表达式；第二个参数是可选的，是确定返回的结果数组的最大长度，这个参数不太常用。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'split1.jpg',
+            info : 'split方法的执行结果(1)'
+        }
+      },
+
+      {
+        type : 'base',
+        data : 'split也可以通过正则表达式来进行分割，但是如果正则表达式包含子正则表达式，则返回的数组中包含与子正则表达式相匹配的的字符串(并不包括与整个正则表达式相匹配的的字符串)。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'split2.jpg',
+            info : 'split方法的执行结果(2)'
+        }
+      },
+
+      {
+        type : 'smallTitle',
+        data :'search ( )'
+      },
+
+      {
+        type : 'base',
+        data : ' seaech方法是用来检索字符串中第一个匹配字符串的起始位置，如果未找到匹配的字符串，则返回-1。'
+      },
+
+      {
+        type : 'base',
+        data : ' seaech方法不执行全局匹配，它会忽略标志g，同时忽略 regexp 的 lastIndex 属性，总是从字符串的开始进行检索。'
+      },
+
+      {
+        type : 'image',
+        data : {
+            url : window.CONFIG.baseUrl + 'search.jpg',
+            info : 'seaech方法的执行结果'
+        }
+      },
+
+      {
+        type : 'base',
+        data : '谢谢！'
       }
 
     ];

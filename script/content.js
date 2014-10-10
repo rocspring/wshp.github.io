@@ -62,7 +62,7 @@ define( [ 'artTemplate', 'templates', 'data', 'JQuery', 'snippet' ], function ( 
 					tempDom = imageRender(nowData[i]);
 					break;
 				case 'table':
-					tempDom = imageRender(nowData[i]);
+					tempDom = tableRender(nowData[i]);
 					break;
 			}
 

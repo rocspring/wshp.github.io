@@ -69,7 +69,7 @@ define(function (argument) {
 					<%for ( var j = 1, len2 = data.length; j < len2; j++ ){%>\
 						<tr>\
 						<%for ( var k = 0, len3 = data[j].length; k < len3; k++ ){%>\
-							<th><%=data[j][k]%></th>\
+							<td><%=data[j][k]%></td>\
 						<%}%>\
 						<tr/>\
 					<%}%>\

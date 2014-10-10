@@ -43,8 +43,21 @@
 	display: block;
 	max-width: 900px;
 	margin: 10px auto;
+	padding: 10px;
+	background: #9f9f9d;
 }
 .image p{
 	text-align: center;
 	color:#999;
+}
+
+/*表格*/
+.table{
+	margin: 0 auto;
+}
+.table th{
+	text-align: center;
+}
+.table tr{
+	/*text-align: center;*/
 }
