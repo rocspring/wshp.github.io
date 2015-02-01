@@ -414,8 +414,8 @@
 
 
 	function bindEvents() {
-		$('.guide .container .btn').on('touchstart', hideGuidePage);
-		$('.guide .container .btn').on('click', hideGuidePage);
+		$('.guide .container .btn').on('touchmove', hideGuidePage);
+		// $('.guide .container .btn').on('click', hideGuidePage);
 	}
 
 
@@ -511,7 +511,7 @@
 				showShareMasking();
 				setTimeout($.proxy(function(){
 					renderResultPage();
-				}, this), 6000);
+				}, this), 10000);
 				
 				return;
 			}
@@ -630,7 +630,7 @@
 
 	weixinAppShare({
 		type: "friends",
-		title: "",
+		title: LESDO.weixinTitle,
 		friendsTitle: LESDO.weixinTitle,
 		content: '',
 		url: handlerUrl(window.location.href),
