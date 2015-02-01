@@ -414,7 +414,7 @@
 
 
 	function bindEvents() {
-		$('.guide .container .btn').on('touchmove', hideGuidePage);
+		$('.guide .container .btn').on('touchstart', hideGuidePage);
 		// $('.guide .container .btn').on('click', hideGuidePage);
 	}
 
@@ -433,7 +433,8 @@
 	}
 
 	// 隐藏引导页
-	function hideGuidePage() {
+	function hideGuidePage(e) {
+		e.preventDefault();
 		$guide.animate({
 			top: -clientHeight + 'px'
 		}, 600);
