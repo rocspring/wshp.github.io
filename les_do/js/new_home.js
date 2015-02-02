@@ -552,8 +552,6 @@
 	function showShareMasking() {
 		$shareMasking.show();
 		calculateScore();
-
-		LESDO.setWeixinShare();
 	}
 
 	// 渲染结果页
@@ -605,12 +603,11 @@
 
 ;(function() {
 
-function setWeixinShare () {
 	var wxData = {
 		"appId": "", // 服务号可以填写appId
 		"imgUrl": '',
 		"link": window.location.href,
-		"desc": window.LESDO.weixinTitle,
+		"desc": '神准！我勒个去我竟然是双性恋！不信来测！',
 		"title": 'LESDO'
 	};
 
@@ -641,8 +638,5 @@ function setWeixinShare () {
 	};
 
 	WeixinApi.share(wxData, wxCallbacks);
-}
 
-window.LESDO.setWeixinShare = setWeixinShare;
-	
 })();
