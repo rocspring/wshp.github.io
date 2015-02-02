@@ -366,7 +366,6 @@
 			<div class="icon"><span><%=data.title%></span></div>\
 			<div class="text"><%=data.cnt%></div>\
 			<div class="btn"><a href="http://www.lesdo.cn/promotion/download?id=100011"></a></div>\
-			<div class="qr-code"><img src="" alt=""></div>\
 			'
 	};
 
