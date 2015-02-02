@@ -604,7 +604,7 @@
 		"appId": "", // 服务号可以填写appId
 		"imgUrl": '',
 		"link": window.location.href,
-		"desc": '',
+		"desc": '神准！我勒个去我竟然是双性恋！不信来测！',
 		"title": 'LESDO'
 	};
 
