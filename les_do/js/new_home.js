@@ -253,7 +253,7 @@
 				answers: [
 					'他开心就好',
 					'不关心八卦',
-					'我想起夕阳下的奔跑那是我逝去的青春'
+					'杰伦都结婚了，好忧伤'
 				],
 
 				img: 'image/question_04.png',
@@ -268,7 +268,7 @@
 
 				answers: [
 					'没有没有两千多~',
-					'您老伴呢孙子多大了退休金够花么？',
+					'老伴呢孙子多大了退休金够吗？',
 					'快了别急你们聊我先走了Orz'
 				],
 
@@ -594,64 +594,5 @@
 	}
 
 	LESDO.renderResultPage = renderResultPage;
-
-})();
-
-;(function() {
-	// 微信分享
-	var weixinAppShare = function(weixinShareData) {
-
-		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-			// 分享到朋友圈;
-			WeixinJSBridge.on('menu:share:timeline', function(argv) {
-
-				WeixinJSBridge.invoke('shareTimeline', {
-					"img_url": weixinShareData.imgUrl,
-					"img_width": "92",
-					"img_height": "92",
-					"link": weixinShareData.url,
-					"desc": weixinShareData.content,
-					"title": weixinShareData.friendsTitle
-				}, function() {});
-			});
-
-			WeixinJSBridge.on('menu:share:appmessage', function(argv) {
-
-				WeixinJSBridge.invoke('sendAppMessage', {
-					"img_url": weixinShareData.imgUrl,
-					"link": weixinShareData.url,
-					"desc": weixinShareData.content,
-					"title": weixinShareData.title
-				}, function() {
-					LESDO.renderResultPage();
-				});
-			});
-		}, false);
-	};
-
-	weixinAppShare({
-		type: "friends",
-		title: LESDO.weixinTitle,
-		friendsTitle: LESDO.weixinTitle,
-		content: '',
-		url: handlerUrl(window.location.href),
-		imgUrl: ""
-	});
-
-	function handlerUrl(url) {
-		var result;
-
-		if (url.indexOf('?') === -1) {
-			result = url + '?';
-			//判断？是否是最后一个字符
-		} else if (url.charAt(url.length - 1) === '?') {
-			result = url;
-		} else {
-			result = url + '&';
-		}
-
-		return result;
-	}
-
 
 })();
