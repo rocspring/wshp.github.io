@@ -552,6 +552,8 @@
 	function showShareMasking() {
 		$shareMasking.show();
 		calculateScore();
+
+		LESDO.setWeixinShare();
 	}
 
 	// 渲染结果页
@@ -593,6 +595,8 @@
 			LESDO.resultData = LESDO.data.result.c;
 			LESDO.weixinTitle = '神准！我勒个去我竟然是双性恋！不信来测！';
 		}
+
+
 	}
 
 	LESDO.renderResultPage = renderResultPage;
@@ -600,11 +604,13 @@
 })();
 
 ;(function() {
+
+function setWeixinShare () {
 	var wxData = {
 		"appId": "", // 服务号可以填写appId
 		"imgUrl": '',
 		"link": window.location.href,
-		"desc": '神准！我勒个去我竟然是双性恋！不信来测！',
+		"desc": window.LESDO.weixinTitle,
 		"title": 'LESDO'
 	};
 
@@ -633,5 +639,10 @@
 
 		}
 	};
+
 	WeixinApi.share(wxData, wxCallbacks);
+}
+
+window.LESDO.setWeixinShare = setWeixinShare;
+	
 })();
