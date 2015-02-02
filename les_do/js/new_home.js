@@ -505,6 +505,9 @@
 
 			if (LESDO.topicIndex === 2 && $currentTarget.index() === 1) {
 				showShareMasking();
+				setTimeout($.proxy(function(){
+					renderResultPage();
+				}, this), 10000);
 				return;
 			}
 
