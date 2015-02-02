@@ -614,6 +614,8 @@
 	var wxCallbacks = {
 		favorite: false,
 
+		async:true,
+
 		ready: function() {
 			this.dataLoaded({
 				desc: window.LESDO.weixinTitle
