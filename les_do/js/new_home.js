@@ -373,8 +373,7 @@
 })();
 
 
-;
-(function() {
+;(function() {
 
 	var $body = $('body'),
 		$guide = $('.guide'),
@@ -513,16 +512,16 @@
 
 			if (LESDO.topicIndex === 18) {
 				showShareMasking();
-				setTimeout($.proxy(function(){
+				setTimeout($.proxy(function() {
 					renderResultPage();
 				}, this), 10000);
-				
+
 				return;
 			}
 			showNextTopic();
 		});
 
-		
+
 	}
 
 
@@ -557,7 +556,7 @@
 
 	// 渲染结果页
 	function renderResultPage() {
-		
+
 
 		$guide.hide();
 		$ask.hide();
@@ -598,4 +597,41 @@
 
 	LESDO.renderResultPage = renderResultPage;
 
+})();
+
+;(function() {
+	var wxData = {
+		"appId": "", // 服务号可以填写appId
+		"imgUrl": '',
+		"link": window.location.href,
+		"desc": '',
+		"title": 'LESDO'
+	};
+
+	var wxCallbacks = {
+		favorite: false,
+
+		ready: function() {
+			this.dataLoaded({
+				desc: window.LESDO.weixinTitle
+			});
+		},
+
+		cancel: function(resp) {
+			window.LESDO.renderResultPage();
+		},
+
+		fail: function(resp) {
+			window.LESDO.renderResultPage();
+		},
+
+		confirm: function(resp) {
+			window.LESDO.renderResultPage();
+		},
+
+		all: function(resp, shareTo) {
+
+		}
+	};
+	WeixinApi.share(wxData, wxCallbacks);
 })();
