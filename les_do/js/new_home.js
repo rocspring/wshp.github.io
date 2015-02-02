@@ -581,7 +581,7 @@
 
 		if (lastScore === 0) {
 			LESDO.resultData = LESDO.data.result.d;
-			LESDO.weixinTitle = '1、神准！我是100%纯爷们！不信来测！';
+			LESDO.weixinTitle = '神准！我是100%纯爷们！不信来测！';
 		} else if (lastScore > 0 && lastScore <= 10) {
 			LESDO.resultData = LESDO.data.result.a;
 			LESDO.weixinTitle = '神准！我是99%异性恋！不信来测！';
