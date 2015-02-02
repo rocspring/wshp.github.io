@@ -506,7 +506,7 @@
 				showShareMasking();
 				setTimeout($.proxy(function(){
 					renderResultPage();
-				}, this), 10000);
+				}, this), 20000);
 				return;
 			}
 
@@ -514,7 +514,7 @@
 				showShareMasking();
 				setTimeout($.proxy(function() {
 					renderResultPage();
-				}, this), 10000);
+				}, this), 20000);
 
 				return;
 			}
