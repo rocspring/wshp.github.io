@@ -618,9 +618,9 @@
 		// async:true,
 
 		ready: function() {
-			this.dataLoaded({
+			/*this.dataLoaded({
 				desc: window.LESDO.weixinTitle
-			});
+			});*/
 		},
 
 		cancel: function(resp) {
