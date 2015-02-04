@@ -665,7 +665,7 @@
 
 })();
 
-/*;(function() {
+;(function() {
 
 	var baseJoinNum = 0;
 
@@ -708,7 +708,7 @@
 	if (LESDO.devices.iOS && LESDO.devices.isNewWeixin) {
 		// console.log('');
 	}else{
-		// WeixinApi.share(wxData, wxCallbacks);
+		WeixinApi.share(wxData, wxCallbacks);
 	}
 	
 	function getNowJoinNum() {
@@ -754,4 +754,4 @@
 	}
 
 	setBaseJoinNum();
-})();*/
+})();
