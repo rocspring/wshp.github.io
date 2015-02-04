@@ -706,7 +706,7 @@
 		}
 	};
 
-	if (LESDO.iOS && LESDO.devices.isNewWeixin) {
+	if (LESDO.devices.iOS && LESDO.devices.isNewWeixin) {
 		console.log('');
 	}else{
 		WeixinApi.share(wxData, wxCallbacks);
