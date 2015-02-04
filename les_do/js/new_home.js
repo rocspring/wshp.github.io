@@ -640,7 +640,7 @@
 		}
 	};
 
-	WeixinApi.share(wxData, wxCallbacks);
+	// WeixinApi.share(wxData, wxCallbacks);
 
 	function getNowJoinNum() {
 		setBaseJoinNum();
