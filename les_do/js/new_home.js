@@ -1,4 +1,5 @@
-;(function() {
+;
+(function() {
 
 	var artTemplate = window.template;
 
@@ -29,12 +30,75 @@
 		}
 	};
 
+	LESDO.devices = (function() {
+		var ua = navigator.userAgent,
+
+			iOS,
+			IEMobile,
+			IE10Plus,
+			SafariMobile,
+			Android,
+
+			UCBrowser,
+			QQBrowser,
+
+			GioneeE7, // 金立手机 E7
+
+			M355, // 魅族3手机
+
+			isNewWeixin;
+
+
+		// iPhone: Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3
+		// iPad:   Mozilla/5.0 (iPad; CPU OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3
+		// iPod:   Mozilla/5.0 (iPod; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/4A93 Safari/419.3
+		iOS = /i(?:Pad|Phone|Pod)(?:.*)CPU(?: iPhone)? OS /i.exec(ua);
+		SafariMobile = /Version\/(\d+\.\d+) Mobile/i.exec(ua);
+
+		MobileChrome = /CriOS\/(\d+)\.*/.exec(ua);
+
+		// Windows Phone 8 UA String
+		// "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; ARM; Touch; IEMobile/10.0; <Manufacturer>; <Device> [;<Operator>])"
+		// "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)"
+		IEMobile = /IEMobile\/(1\d)/i.exec(ua);
+		IE10Plus = /IE (1\d)/.exec(ua);
+		IE11 = /rv\:11/.exec(ua);
+
+		Android = /Android/i.exec(ua);
+
+		UCBrowser = /UCBrowser/i.exec(ua);
+		QQBrowser = /QQBrowser/i.exec(ua);
+
+		GioneeE7 = /GIONEE-E7/i.exec(ua);
+
+		M355 = /M355/i.exec(ua);
+
+		isNewWeixin = /micromessenger\/6\.1/i.test(window.navigator.userAgent);
+
+
+		return {
+			"iOS": iOS,
+			"iOSVersion": SafariMobile && parseInt(SafariMobile[1], 10),
+			"IEMobile": IEMobile,
+			"IE10Plus": IE10Plus,
+			"SafariMobile": iOS && !UCBrowser && !QQBrowser && SafariMobile,
+			"MobileChrome": MobileChrome,
+			"Android": Android,
+			"UCBrowser": UCBrowser,
+			"QQBrowser": QQBrowser,
+			"GioneeE7": GioneeE7,
+			"M355": M355,
+			"isNewWeixin": isNewWeixin
+		};
+	})();
+
 
 	window.LESDO = LESDO;
 
 })();
 
-;(function() {
+;
+(function() {
 
 	LESDO.data = {
 
@@ -372,7 +436,8 @@
 })();
 
 
-;(function() {
+;
+(function() {
 
 	var $body = $('body'),
 		$guide = $('.guide'),
@@ -503,7 +568,7 @@
 
 			if (LESDO.topicIndex === 2 && $currentTarget.index() === 1) {
 				showShareMasking();
-				setTimeout($.proxy(function(){
+				setTimeout($.proxy(function() {
 					renderResultPage();
 				}, this), 20000);
 				return;
@@ -600,10 +665,11 @@
 
 })();
 
-;(function() {
+;
+(function() {
 
 	var baseJoinNum = 0;
-	
+
 	var wxData = {
 		"appId": "", // 服务号可以填写appId
 		"imgUrl": '',
@@ -615,12 +681,12 @@
 	var wxCallbacks = {
 		favorite: false,
 
-		// async:true,
+		async: true,
 
 		ready: function() {
-			/*this.dataLoaded({
+			this.dataLoaded({
 				desc: window.LESDO.weixinTitle
-			});*/
+			});
 		},
 
 		cancel: function(resp) {
@@ -640,8 +706,12 @@
 		}
 	};
 
-	WeixinApi.share(wxData, wxCallbacks);
-
+	if (LESDO.iOS && LESDO.devices.isNewWeixin) {
+		console.log('');
+	}else{
+		WeixinApi.share(wxData, wxCallbacks);
+	}
+	
 	function getNowJoinNum() {
 		setBaseJoinNum();
 		baseJoinNum = baseJoinNum + getRandom(1, 3) * 7;
