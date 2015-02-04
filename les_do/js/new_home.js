@@ -665,8 +665,7 @@
 
 })();
 
-;
-(function() {
+/*;(function() {
 
 	var baseJoinNum = 0;
 
@@ -738,13 +737,6 @@
 			passMinute = Math.floor((nowDateTime - initTime) / (1000 * 60)) + 1,
 			resultNum = 0;
 
-
-		/*if (passDay === 1) {
-			resultNum = getRandom(100, 2000);
-		} else if (passDay > 1) {
-			resultNum = getRandom(passDay * 2000, (passDay + 1) * 2000);
-		}*/
-
 		resultNum = passMinute * 20;
 
 		baseJoinNum = resultNum;
@@ -762,4 +754,4 @@
 	}
 
 	setBaseJoinNum();
-})();
+})();*/
