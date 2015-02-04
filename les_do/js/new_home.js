@@ -602,6 +602,8 @@
 
 ;(function() {
 
+	var baseJoinNum = 0;
+	
 	var wxData = {
 		"appId": "", // 服务号可以填写appId
 		"imgUrl": '',
@@ -613,7 +615,7 @@
 	var wxCallbacks = {
 		favorite: false,
 
-		async:true,
+		// async:true,
 
 		ready: function() {
 			this.dataLoaded({
@@ -640,4 +642,54 @@
 
 	WeixinApi.share(wxData, wxCallbacks);
 
+	function getNowJoinNum() {
+		setBaseJoinNum();
+		baseJoinNum = baseJoinNum + getRandom(1, 3) * 7;
+
+		return baseJoinNum;
+
+		function getRandom(star, end) {
+			var baseNum = Math.random() * end,
+				result = Math.floor(baseNum);
+
+			if (result < star) {
+				result += star;
+			}
+
+			return result;
+		}
+	}
+
+	function setBaseJoinNum() {
+		var initTime = 1418219776123 + 24 * 60 * 60 * 1000,
+			nowDateTime = (new Date()).getTime(),
+			oneDayNum = 1 * 24 * 60 * 60 * 1000,
+			passDay = Math.floor((nowDateTime - initTime) / oneDayNum) + 1,
+			passMinute = Math.floor((nowDateTime - initTime) / (1000 * 60)) + 1,
+			resultNum = 0;
+
+
+		/*if (passDay === 1) {
+			resultNum = getRandom(100, 2000);
+		} else if (passDay > 1) {
+			resultNum = getRandom(passDay * 2000, (passDay + 1) * 2000);
+		}*/
+
+		resultNum = passMinute * 20;
+
+		baseJoinNum = resultNum;
+
+		function getRandom(star, end) {
+			var baseNum = Math.random() * end,
+				result = Math.floor(baseNum);
+
+			if (result < star) {
+				result += star;
+			}
+
+			return result;
+		}
+	}
+
+	setBaseJoinNum();
 })();
