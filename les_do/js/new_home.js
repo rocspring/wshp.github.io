@@ -492,10 +492,6 @@
 		$ask.height(clientHeight);
 		$result.height(clientHeight);
 
-		//对3.5寸的iphone4,iphone4s手机背景图进行特殊处理
-		/*if (window.screen.height === 480 ) {
-			$('.ask .container .bg').css('background-position', '0 80px');
-		}*/
 	}
 
 	// 隐藏引导页
@@ -527,6 +523,11 @@
 		$askContainer.append(askBgRender({
 			data: data
 		}));
+
+		//对3.5寸的iphone4,iphone4s手机背景图进行特殊处理
+		if (window.screen.height === 480 ) {
+			$('.ask .container .bg').css('background-position', '0 80px');
+		}
 
 		$answer.show();
 

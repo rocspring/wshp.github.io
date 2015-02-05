@@ -216,12 +216,6 @@ body{
 	width: 100%;
 }
 
-@media (device-height:480px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone4/4s */
-.ask .bg{
-	background-position: 0 80px;
-}
-}
-
 .ask .bg .logo{
 	position: absolute;
 	bottom: 18px;
