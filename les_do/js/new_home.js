@@ -709,6 +709,7 @@
 		// console.log('');
 	}else{
 		WeixinApi.share(wxData, wxCallbacks);
+		$('head title').html('LESDO');
 	}
 	
 	function getNowJoinNum() {
