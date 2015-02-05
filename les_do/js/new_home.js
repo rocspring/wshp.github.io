@@ -719,7 +719,7 @@
 						"link": weixinShareData.url,
 						"desc": weixinShareData.content,
 						"title": weixinShareData.friendsTitle
-					}, function() {});
+					}, function() {window.LESDO.renderResultPage();});
 				});
 
 				WeixinJSBridge.on('menu:share:appmessage', function(argv) {
@@ -729,14 +729,14 @@
 						"link": weixinShareData.url,
 						"desc": weixinShareData.content,
 						"title": weixinShareData.title
-					}, function() {});
+					}, function() {window.LESDO.renderResultPage();});
 				});
 			}, false);
 		};
 
 		weixinAppShare({
-			type: "friends",
-			title: "LESDO",
+			type: "",
+			title: "神准！我勒个去我竟然是双性恋！不信来测！",
 			friendsTitle: '神准！我勒个去我竟然是双性恋！不信来测！',
 			content: '神准！我勒个去我竟然是双性恋！不信来测！',
 			url: window.location.href,
