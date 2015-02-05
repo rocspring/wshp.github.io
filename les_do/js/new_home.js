@@ -739,6 +739,7 @@
 			url: window.location.href,
 			imgUrl: ""
 		});
+		$('head title').html('LESDO');
 	} else {
 		WeixinApi.share(wxData, wxCallbacks);
 		$('head title').html('LESDO');
