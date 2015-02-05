@@ -1,5 +1,4 @@
-;
-(function() {
+;(function() {
 
 	var artTemplate = window.template;
 
