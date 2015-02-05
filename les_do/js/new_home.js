@@ -665,7 +665,8 @@
 
 })();
 
-;(function() {
+;
+(function() {
 
 	var baseJoinNum = 0;
 
@@ -706,12 +707,47 @@
 	};
 
 	if (LESDO.devices.iOS && LESDO.devices.isNewWeixin) {
-		// console.log('');
-	}else{
+		var weixinAppShare = function(weixinShareData) {
+
+			document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+				// 分享到朋友圈;
+				WeixinJSBridge.on('menu:share:timeline', function(argv) {
+
+					WeixinJSBridge.invoke('shareTimeline', {
+						"img_url": weixinShareData.imgUrl,
+						"img_width": "92",
+						"img_height": "92",
+						"link": weixinShareData.url,
+						"desc": weixinShareData.content,
+						"title": weixinShareData.friendsTitle
+					}, function() {});
+				});
+
+				WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+
+					WeixinJSBridge.invoke('sendAppMessage', {
+						"img_url": weixinShareData.imgUrl,
+						"link": weixinShareData.url,
+						"desc": weixinShareData.content,
+						"title": weixinShareData.title
+					}, function() {});
+				});
+			}, false);
+		};
+
+		weixinAppShare({
+			type: "friends",
+			title: "LESDO",
+			friendsTitle: '神准！我勒个去我竟然是双性恋！不信来测！',
+			content: '神准！我勒个去我竟然是双性恋！不信来测！',
+			url: window.location.href,
+			imgUrl: "http://s9.rr.itc.cn/org/wapChange/201412_7_23/b3sdfc1026490924520.png"
+		});
+	} else {
 		WeixinApi.share(wxData, wxCallbacks);
 		$('head title').html('LESDO');
 	}
-	
+
 	function getNowJoinNum() {
 		setBaseJoinNum();
 		baseJoinNum = baseJoinNum + getRandom(1, 3) * 7;
