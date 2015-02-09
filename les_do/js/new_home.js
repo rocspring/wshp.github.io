@@ -526,7 +526,9 @@
 
 		//对3.5寸的iphone4,iphone4s手机背景图进行特殊处理
 		if (window.screen.height === 480 ) {
-			$('.ask .container .bg').css('background-position', '0 40px');
+			$('.ask .container .bg').css('background-position', '0 5px');
+			$('.ask .question').css('padding-top', '25px');
+			$('.ask .question').css('margin-bottom', '15px');
 		}
 
 		$answer.show();
