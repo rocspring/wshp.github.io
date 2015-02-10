@@ -391,7 +391,7 @@
 
 				name: '爷们分享朋友圈  然后低调离开',
 
-				cnt: '这个测试不适合你！快去分享给你的女生朋友！',
+				cnt: '都说了男生勿点，你偏要点，是想让我夸你帅呢还是表扬你任性？这里是女人的秘密花园，快点分享给你身边的女朋友们吧！',
 
 				share: ''
 			}
@@ -654,7 +654,7 @@
 
 		if (lastScore === 0) {
 			LESDO.resultData = LESDO.data.result.d;
-			LESDO.weixinTitle = '神准！我是100%纯爷们！不信来测！';
+			LESDO.weixinTitle = '这个测试不适合你！快去分享给你的女生朋友！';
 		} else if (lastScore > 0 && lastScore <= 10) {
 			LESDO.resultData = LESDO.data.result.a;
 			LESDO.weixinTitle = '神准！我是99%异性恋！不信来测！';
