@@ -477,7 +477,7 @@
 
 	function bindEvents() {
 		// $('.guide .container .btn').on('swipeUp', hideGuidePage);
-		$('.guide .container .btn').on('touchstart', hideGuidePage);
+		$('.guide .container .btn').on('click', hideGuidePage);
 	}
 
 
