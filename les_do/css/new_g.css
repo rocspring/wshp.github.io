@@ -375,10 +375,14 @@ body{
 }
 
 .result .container{
-
 	width: 100%;
 	padding-top: 27px;
 }
+
+.result .container .content{
+	position: relative;
+	z-index: 2;
+}	
 
 .result .container .content .icon{
 	position: relative;
@@ -458,6 +462,7 @@ body{
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+	z-index: 1;
 }
 
 .result .bg .logo{
