@@ -529,7 +529,7 @@
 			$('.ask .container .bg').css('background-position', '0 5px');
 			$('.ask .question').css('padding-top', '25px');
 			$('.ask .question li').css('margin-bottom', '15px');
-			$('.ask .question span').css('top', '23px');
+			$('.ask .question span').css('top', '25px');
 			
 		}
 
