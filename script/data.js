@@ -39,12 +39,17 @@ define(function () {
 
 					//10月的数据
 					{
-						month : '2014.10',
+						month : '2015.6',
 						list : [
-						
+							{
+								day : '2014.6.11',
+								title : 'zepto的一个小bug',
+								url : '2015_6/2015_6_11.html'
+							}
 						]
 
-					}
+					},
+
 				]
 	} ;
 
