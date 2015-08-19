@@ -1,0 +1,12 @@
+@import url('./lib/impress.css');
+
+.step h2{
+	font-size: 50px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.step-1 {line-height: 700px}
+
+.step-2 p{margin-top: 100px; text-align: center;}
+.step-2 p img{width: 100%; height: 100%;}
