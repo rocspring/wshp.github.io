@@ -37,14 +37,26 @@ define(function () {
 
 					},
 
-					//10月的数据
+					//6月的数据
 					{
 						month : '2015.6',
 						list : [
 							{
-								day : '2014.6.11',
+								day : '2015.6.11',
 								title : 'zepto的一个小bug',
 								url : '2015_6/2015_6_11.html'
+							}
+						]
+
+					},
+
+					{
+						month : '2015.9',
+						list : [
+							{
+								day : '2015.9.15',
+								title : 'grunt concat 遇到的一个问题',
+								url : '2015_9/2015_9_15.html'
 							}
 						]
 

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="description" content="wshp.github.io : wshp的个人博客">
+
+  <link rel="stylesheet" type="text/css" media="screen" href="../style/stylesheet.css">
+
+  <title>grunt concat 遇到的问题</title>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div id="header_wrap" class="outer">
+    <header class="inner">
+      <a id="forkme_banner" href="https://github.com/wshp">View on GitHub</a>
+
+      <h1 id="project_title">wshp的个人博客</h1>
+      <h2 id="project_tagline">记录中...</h2>
+
+    </header>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div id="main_content_wrap" class="outer content">
+    <section id="main_content" class="inner">
+    
+      <div class="content-canvas"></div>
+
+    </section>
+  </div>
+
+  <!-- FOOTER  -->
+  <div id="footer_wrap" class="outer">
+    <footer class="inner">
+      <p>
+        Published with
+        <a href="http://pages.github.com">GitHub Pages</a>
+      </p>
+    </footer>
+  </div>
+
+
+<script src="../script/require.js" data-main="../script/main"></script>
+<script>
+  window.CONFIG = {
+    isContent : true,
+    date : '2015_09_15'
+  };
+</script>
+<script>
+    window.CONFIG.baseUrl = '../images/2015_09/2015_09_15/';
+    window.CONFIG.pageData = [
+      {
+        type : 'title',
+        data : 'grunt concat遇到的一个问题 '
+      },
+
+      {
+        type : 'date',
+        data : '[2014.9.15]'
+      },
+
+      {
+        type : 'smallTitle',
+        data :'引言'
+      },
+
+      {
+        type : 'base',
+        data : '今天在工作中，碰到一个问题，记录一下。'
+      },
+
+      {
+        type : 'base',
+        data : '我更新了一个项目依赖的一个node模块，这个模块因为node_model是在本地安装，因此同事并不太清楚我更新过这个模块，因此，没有通过npm更新。结果，就打包上线了。因为同事上线的页面，并不是我代码所在的页面，上线时也没有发现这个错误。一个偶然的因素，使得我上线的页面更新版本号，触发了这个bug，才发现页面js报错。'
+      },
+
+      {
+        type : 'base',
+        data : '发现这个问题，在本地找了很久，因为当时并不太清楚是什么原因引起的错误。同事，因为页面有很快的升级版本号，又正常了。同时，因为我以为已经告诉同事需要更新node_module，也没想到是这个问题。我在本地找了很久，没有发现问题复现。最后，是另外一个同事提醒才想到这个问题。'
+      },
+
+      {
+        type : 'base',
+        data : '通过总结这次教训，发现最好系统可以自动的发现这类问题，并且提示报错。使得可以及时的更新代码。因此，查看了一下grunt-concat的接口，发现有一个nonull熟悉，设置为true就可以，检测合并代码的时候是否有需要的文件。'
+      },
+
+      {
+        type : 'base',
+        data : '但是，还有问题。当找不到文件是，grunt仅仅提示了一个警告，任务仍然继续执行。而，这个警告，有非常的不起眼，很容易忽略。最好的解决办法，就是停止任务的执行。因此，又去查看grunt-concat的源码，希望在这里打断任务的执行。'
+      },
+
+      {
+        type : 'base',
+        data : '但是，查找了grunt的api，没有找到怎么打断执行的方法。最后，用了一个取巧的方法，因为这段代码是在严格模式下执行，在找不到文件的逻辑中，使用一个未声明的变量，使得代码报错，任务的执行被打断。'
+      },
+
+      {
+        type : 'base',
+        data : '我也知道这个方法，太上不了台面了。如果您知道可以打断grunt执行的方法，请告知一下。邮箱：wshp000000@gmail.com'
+      }
+
+    ];
+</script>
+</body>
+</html>
